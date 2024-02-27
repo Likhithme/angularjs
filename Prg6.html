@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todoApp">
+<head>
+ <meta charset="UTF-8">
+ <title>Todo List App</title>
+ <script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+ <style>
+ ul {
+ list-style-type: none;
+ padding: 0;
+ }
+ li {
+ margin-bottom: 5px;
+ }
+ </style>
+</head>
+<body>
+ <div ng-controller="TodoController">
+ <h2>Todo List</h2>
+ <form ng-submit="addTask()">
+ <label for="task">Add Task:</label>
+ <input type="text" id="task" ng-model="newTask" required>
+ <button type="submit">Add</button>
+ </form>
+ <ul>
+ <li ng-repeat="task in tasks">
+ {{ task }}
+ <button ng-click="editTask($index)">Edit</button>
+ <button ng-click="deleteTask($index)">Delete</button>
+ </li>
+ </ul>
+ </div>
+ <script>
+ var app = angular.module('todoApp', []);
+ app.controller('TodoController', function ($scope) {
+ // Default tasks
+ $scope.tasks = ["Task 1", "Task 2", "Task 3"];
+ // Function to add a new task
+ $scope.addTask = function () {
+ if ($scope.newTask) {
+ $scope.tasks.push($scope.newTask);
+ $scope.newTask = ''; // Clear the input field
+ }
+ };
+ // Function to edit a task
+ $scope.editTask = function (index) {
+ var editedTask = prompt("Edit Task:", $scope.tasks[index]);
+ if (editedTask !== null) {
+ $scope.tasks[index] = editedTask;
+ }
+ };
+ // Function to delete a task
+ $scope.deleteTask = function (index) {
+ var confirmDelete = confirm("Are you sure you want to delete this task?");
+ if (confirmDelete) {
+ $scope.tasks.splice(index, 1);
+ }
+ };
+ });
+ </script>
+</body>
+</html>
