@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+ <title>Number Calculator with AngularJS</title>
+ <!-- Include AngularJS library -->
+ <script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+ <!-- AngularJS controller -->
+ <div ng-controller="CalculatorCtrl">
+ <!-- Page heading -->
+ <h1>Number Calculator with AngularJS</h1>
+ <!-- Input field for the first number -->
+ <p>Enter a number:</p>
+ <input type="number" ng-model="number1">
+ <!-- Input field for the second number -->
+ <p>Enter another number:</p>
+ <input type="number" ng-model="number2">
+ <!-- Display the result of addition -->
+ <p>Result: {{ number1 }} + {{ number2 }} = {{ number1 + number2 }}</p>
+ <!-- Display the result of subtraction -->
+ <p>Result: {{ number1 }} - {{ number2 }} = {{ number1 - number2 }}</p>
+ <!-- Display the result of multiplication -->
+ <p>Result: {{ number1 }} * {{ number2 }} = {{ number1 * number2 }}</p>
+ <!-- Display the result of division -->
+ <p>Result: {{ number1 }} / {{ number2 }} = {{ number1 / number2 }}</p>
+ </div>
+ <!-- AngularJS script -->
+ <script>
+ // Define the AngularJS module named 'myApp'
+ angular.module('myApp', [])
+ // Define a controller named 'CalculatorCtrl'
+ .controller('CalculatorCtrl', function ($scope) {
+ // Initialize the first and second numbers to 0
+ $scope.number1 = 0;
+ $scope.number2 = 0;
+ });
+ </script>
+</body>
+</html>
