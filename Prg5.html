@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="studentApp">
+<head>
+ <meta charset="UTF-8">
+ <title>Student Details</title>
+ <script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+ <div ng-controller="StudentController">
+ <h2>Student Details</h2>
+ <label>Total Students: {{ students.length }}</label>
+ <form ng-submit="addStudent()">
+ <label for="name">Name:</label>
+ <input type="text" id="name" ng-model="newStudent.name" required>
+ <label for="cgpa">CGPA:</label>
+ <input type="number" id="cgpa" ng-model="newStudent.cgpa" step="0.1" required>
+ <button type="submit">Add Student</button>
+ </form>
+ <ul>
+ <li ng-repeat="student in students">
+ <strong>{{ student.name }}</strong> - CGPA: {{ student.cgpa }}
+ </li>
+ </ul>
+ </div>
+ <script>
+ var app = angular.module('studentApp', []);
+ app.controller('StudentController', function ($scope) {
+ $scope.students = [];
+ $scope.newStudent = {};
+ $scope.addStudent = function () {
+ // Validate and add the new student
+ if ($scope.newStudent.name && $scope.newStudent.cgpa) {
+ $scope.students.push({
+ name: $scope.newStudent.name,
+ cgpa: $scope.newStudent.cgpa
+ });
+ // Clear the form fields
+ $scope.newStudent = {};
+ }
+ };
+ });
+ </script>
+</body>
+</html>
