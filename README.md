@@ -80,9 +80,9 @@ pip install -r requirements.txt
 ### **2. Install FFmpeg**
 The script uses `pydub`, which requires **FFmpeg**. Install it by following these steps:
 
-- **Windows**: [Download FFmpeg](https://ffmpeg.org/download.html)
+- **Windows**: 
 
-    1. **Download FFmpeg**  
+    **Download FFmpeg**  
     - Open a web browser.  
     - Navigate to **[Windows build from gyan.dev](https://www.gyan.dev/ffmpeg/builds/)**.  
     - Under **"Git Master Builds,"** locate and download:  
@@ -90,7 +90,7 @@ The script uses `pydub`, which requires **FFmpeg**. Install it by following thes
         ffmpeg-git-full.7z
         ```
     
-    2. **Extract and Move FFmpeg**  
+    **Extract and Move FFmpeg**  
     - Once downloaded, extract the `.7z` file using **WinRAR** or **7-Zip**.  
     - Move the extracted folder to:  
         ```text
@@ -101,7 +101,7 @@ The script uses `pydub`, which requires **FFmpeg**. Install it by following thes
         C:\Program Files\ffmpeg-7.1-full_build\bin
         ```
 
-    3. **Set Up Environment Variables**  
+    **Set Up Environment Variables**  
     - In the **Windows Search Bar**, type:  
         ```text
         Edit the system environment variables
@@ -129,6 +129,22 @@ ffmpeg -version
 ### Expected results:
 - If FFmpeg is installed correctly, you should see output detailing the installed version of FFmpeg, along with various configuration options and libraries.
 - If FFmpeg is not installed, you will see a message like `'ffmpeg' is not recognized as an internal or external command` (on Windows) or `command not found` (on macOS/Linux).
+
+---
+
+### **3. Download and Place the Model Files**  
+
+1. **Download the Required Model Files**  
+   - Click the following link to access the model files:  
+     👉 **[Download Model Files](https://drive.google.com/drive/folders/1PoVtN1iQ2GD1ysLWMRsgeQQ4b7dfAay3?usp=sharing)**  
+   - Download all the necessary model files from the provided link.  
+
+2. **Place the Model Files in the Correct Directory**  
+   - Navigate to your project directory:  
+     ```text
+     Audio_Enhancer\tmp\audio-separator-models
+     ```
+   - Move the downloaded model files into this folder.  
 
 ---
 
@@ -174,4 +190,3 @@ print(f"Enhanced file saved to: {enhanced_file}")
 
 ## **Output Files**
 - The script saves the **enhanced** audio file as `_enhanced.wav` in the output directory.
-- The separated file (before enhancement) is **automatically deleted** to keep the output folder clean.
